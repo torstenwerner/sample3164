@@ -3,8 +3,6 @@ buildscript {
         jcenter()
     }
     dependencies {
-        // version conflict not reported with 1.3.1
-//        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.8.RELEASE'
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE'
     }
 }
@@ -20,6 +18,11 @@ configurations.all {
     resolutionStrategy {
         failOnVersionConflict()
     }
+}
+
+dependencyManagement {
+    // version conflict should be reported
+    overriddenByDependencies = false
 }
 
 dependencies {
